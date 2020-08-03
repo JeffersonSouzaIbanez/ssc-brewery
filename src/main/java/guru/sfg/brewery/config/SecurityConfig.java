@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import guru.sfg.brewery.security.SfgPasswordEncoderFactories;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -17,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     PasswordEncoder passowrdEncoder () {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        return SfgPasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
     @Override
@@ -42,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("admin")
-                .password("{bcrypt}$2a$10$wZzKHwinryEYnJGBOuSdjeWq653mUvn.0/Q1aDuRzTM2E8rtF2rvW")
+                .password("{bcrypt15}$2a$15$FEQfyk169efRAhDxFHTDVOLqo0xmFhnpw8uOXuPQxMUJS/Sxja9XW")
                 .roles("ADMIN")
                 .and()
                 .withUser("user")

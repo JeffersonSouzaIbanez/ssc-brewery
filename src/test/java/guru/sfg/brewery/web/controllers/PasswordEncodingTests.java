@@ -59,6 +59,17 @@ public class PasswordEncodingTests {
         assertTrue(byCrypt.matches(PASSWORD, encoded));
     }
 
+    @Test
+    void testByCrypt15() {
+        PasswordEncoder byCrypt = new BCryptPasswordEncoder(15);
+        System.out.println(byCrypt.encode(PASSWORD));
+        System.out.println(byCrypt.encode(PASSWORD));
+        System.out.println(byCrypt.encode("passwordadmin"));
+
+        String encoded = byCrypt.encode(PASSWORD);
+
+        assertTrue(byCrypt.matches(PASSWORD, encoded));
+    }
 
     @Test
     public void hashingExample() {

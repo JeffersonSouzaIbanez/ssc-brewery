@@ -14,8 +14,16 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 public class BeerControllerIT extends  BaseIT {
 
     @Test
+    void createBeerWithAdminUser() throws Exception {
+        mockMvc.perform(get("/beers/new").with(httpBasic("admin", "passwordadmin")))
+                .andExpect(status().isOk())
+                .andExpect(view().name("beers/createBeer"))
+                .andExpect(model().attributeExists("beer"));
+    }
+
+    @Test
     void initCreationFrom() throws Exception {
-        mockMvc.perform(get("/beers/new").with(httpBasic("user", "password")))
+        mockMvc.perform(get("/beers/new").with(httpBasic("user", "passworduser")))
                 .andExpect(status().isOk())
                 .andExpect(view().name("beers/createBeer"))
                 .andExpect(model().attributeExists("beer"));

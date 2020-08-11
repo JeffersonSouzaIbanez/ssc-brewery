@@ -6,11 +6,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import guru.sfg.brewery.web.controllers.BaseIT;
 
-@WebMvcTest
+@SpringBootTest
 public class BeerRestControllerIT extends BaseIT {
 
 

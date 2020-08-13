@@ -21,14 +21,14 @@ public class UserDataLoader implements CommandLineRunner {
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public void run(final String... args) throws Exception {
+    public void run(final String... args) {
         if(authorityRepository.count() == 0) {
             loadSecurityData();
         }
     }
 
     private void loadSecurityData() {
-        final Authority admin = authorityRepository.save(Authority.builder().role("ROLES_ADMIN").build());
+        final Authority admin = authorityRepository.save(Authority.builder().role("ROLE_ADMIN").build());
         final Authority user = authorityRepository.save(Authority.builder().role("ROLE_USER").build());
         final Authority customer = authorityRepository.save(Authority.builder().role("ROLE_CUSTOMER").build());
 

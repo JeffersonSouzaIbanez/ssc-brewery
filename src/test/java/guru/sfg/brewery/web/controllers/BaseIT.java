@@ -26,6 +26,11 @@ public abstract class BaseIT {
                 .apply(springSecurity()).build();
     }
 
+    public static Stream<Arguments> getStreamAdminAndCustomer() {
+        return Stream.of(Arguments.of("admin", "passwordadmin"),
+                Arguments.of("scott", "tiger"));
+    }
+
     public static Stream<Arguments> getStreamAllUsers() {
         return Stream.of(Arguments.of("admin", "passwordadmin"),
                 Arguments.of("scott", "tiger"),

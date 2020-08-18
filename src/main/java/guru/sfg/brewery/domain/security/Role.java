@@ -21,15 +21,14 @@ import lombok.Singular;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Entity
 public class Role {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Integer id;
+    private Integer id;
 
     private String name;
 
@@ -37,7 +36,7 @@ public class Role {
     private Set<User> users;
 
     @Singular
-    @ManyToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name = "role_authority",
                joinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")},
                inverseJoinColumns = {@JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID")})

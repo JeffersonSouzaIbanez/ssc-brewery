@@ -16,15 +16,15 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Entity
 public class Authority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Integer id;
+    private Integer id;
 
     private String permission;
 

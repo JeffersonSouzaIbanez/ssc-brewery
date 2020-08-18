@@ -23,18 +23,18 @@ import lombok.Singular;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Entity
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Integer id;
+    private Integer id;
 
-    private String password;
     private String username;
+    private String password;
 
     @Singular
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)

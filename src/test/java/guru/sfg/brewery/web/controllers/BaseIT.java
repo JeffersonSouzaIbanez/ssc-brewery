@@ -17,13 +17,14 @@ public abstract class BaseIT {
     @Autowired
     WebApplicationContext wac;
 
-    public MockMvc mockMvc;
+    protected MockMvc mockMvc;
 
     @BeforeEach
-    void setUp() {
+    public void setup() {
         mockMvc = MockMvcBuilders
                 .webAppContextSetup(wac)
-                .apply(springSecurity()).build();
+                .apply(springSecurity())
+                .build();
     }
 
     public static Stream<Arguments> getStreamAdminAndCustomer() {

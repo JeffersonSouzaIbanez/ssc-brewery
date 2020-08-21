@@ -99,7 +99,7 @@ public class BeerController {
         return "beers/createBeer";
     }
 
-    @BeerReadPermission
+    @BeerCreatePermission
     @PostMapping("/new")
     public String processCreationForm(Beer beer) {
         //ToDO: Add Service
